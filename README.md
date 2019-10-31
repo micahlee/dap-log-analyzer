@@ -1,4 +1,15 @@
-# Elastic stack (ELK) on Docker
+# DAP Log Analyzer
+*Derived from [deviantony/docker-elk](https://github.com/deviantony/docker-elk).*
+
+## Load Data from DAP Nodes
+
+Start the Docker ELK stack and then load DAP logs for each node:
+
+```shell
+cat docker_{NODE_NAME}.log | awk '{print "[{NODE_NAME}] " $0}' | nc localhost 5000
+```
+
+## Original README
 
 [![Join the chat at https://gitter.im/deviantony/docker-elk](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/deviantony/docker-elk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Elastic Stack version](https://img.shields.io/badge/ELK-7.4.1-blue.svg?style=flat)](https://github.com/deviantony/docker-elk/issues/441)
